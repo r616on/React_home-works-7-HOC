@@ -19,7 +19,8 @@ function DateTimeUpdate(Components) {
     return <Components {...props} date={updateDate} />;
   };
 }
-const ModifidDate = DateTimeUpdate(DateTime);
+const ModifidDateVideo = DateTimeUpdate(Video);
+
 function Video(props) {
   return (
     <div className="video">
@@ -30,14 +31,14 @@ function Video(props) {
         allow="autoplay; encrypted-media"
         allowFullScreen
       ></iframe>
-      <ModifidDate date={props.date} />
+      <DateTime date={props.date} />
     </div>
   );
 }
 
 function VideoList(props) {
   return props.list.map((item) => (
-    <Video key={item.id} url={item.url} date={item.date} />
+    <ModifidDateVideo key={item.id} url={item.url} date={item.date} />
   ));
 }
 
